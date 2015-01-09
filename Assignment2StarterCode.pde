@@ -11,13 +11,13 @@ boolean[] keys = new boolean[526];
 
 void setup()
 {
-  size(500, 500);
+  size(500, 600);
   setUpPlayerControllers();
 }
 
 void draw()
 {
-  background(0);
+  Map();
   for(Player player:players)
   {
     player.update();
@@ -67,15 +67,12 @@ void setUpPlayerControllers()
 {
   XML xml = loadXML("arcade.xml");
   XML[] children = xml.getChildren("player");
-  int gap = width / (children.length + 1);
+  int gap = width / (children.length + 1); 
   
   for(int i = 0 ; i < children.length ; i ++)  
   {
     XML playerXML = children[i];
-    Player p = new Player(
-            i
-            , color(random(0, 255), random(0, 255), random(0, 255))
-            , playerXML);
+    Player p = new Player(i, playerXML);
     int x = (i + 1) * gap;
     p.pos.x = x;
     p.pos.y = 300;

@@ -16,11 +16,10 @@ class Player
     pos = new PVector(width / 2, height / 2);
   }
   
-  Player(int index, color colour, char up, char down, char left, char right, char start, char button1, char button2)
+  Player(int index, char up, char down, char left, char right, char start, char button1, char button2)
   {
     this();
     this.index = index;
-    this.colour = colour;
     this.up = up;
     this.down = down;
     this.left = left;
@@ -30,11 +29,10 @@ class Player
     this.button2 = button2;
   }
   
-  Player(int index, color colour, XML xml)
+  Player(int index, XML xml)
   {
     this(index
-        , colour
-        , buttonNameToKey(xml, "up")
+          buttonNameToKey(xml, "up")
         , buttonNameToKey(xml, "down")
         , buttonNameToKey(xml, "left")
         , buttonNameToKey(xml, "right")
@@ -79,7 +77,7 @@ class Player
   void display()
   {    
     stroke(colour);
-    fill(colour);    
-    rect(pos.x, pos.y, 20, 20);
+    fill(255, 255, 0);
+    ellipse(pos.x, pos.y, 30, 30);
   }  
 }
