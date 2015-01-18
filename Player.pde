@@ -32,7 +32,7 @@ class Player
   Player(int index, XML xml)
   {
     this(index
-          buttonNameToKey(xml, "up")
+        ,  buttonNameToKey(xml, "up")
         , buttonNameToKey(xml, "down")
         , buttonNameToKey(xml, "left")
         , buttonNameToKey(xml, "right")

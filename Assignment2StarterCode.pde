@@ -11,7 +11,7 @@ boolean[] keys = new boolean[526];
 
 void setup()
 {
-  size(500, 600);
+  size(510, 600);
   setUpPlayerControllers();
 }
 
