@@ -1,6 +1,6 @@
 void Map()
 {
-    background(0);
+    
     for(int i = 0 ; i < height ; i+=30)
     {
       stroke(0, 255, 0);

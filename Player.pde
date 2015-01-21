@@ -10,10 +10,14 @@ class Player
   char button2;
   int index;
   color colour;
+  int radius = 5, directionX = 1, directionY = 1;
+  float rotation = 0;
+  float antiRotate = 0.1;
+  float starts, stop;
     
   Player()
   {
-    pos = new PVector(width / 2, height / 2);
+    pos = new PVector(255, 435);
   }
   
   Player(int index, char up, char down, char left, char right, char start, char button1, char button2)
@@ -32,7 +36,7 @@ class Player
   Player(int index, XML xml)
   {
     this(index
-        ,  buttonNameToKey(xml, "up")
+        , buttonNameToKey(xml, "up")
         , buttonNameToKey(xml, "down")
         , buttonNameToKey(xml, "left")
         , buttonNameToKey(xml, "right")
@@ -44,6 +48,16 @@ class Player
   
   void update()
   {
+    if (rotation > 0.55)
+      {
+        antiRotate = -0.03;
+      }
+      else if (rotation <= 0)
+      {
+        antiRotate = 0.03;
+      }
+    rotation = rotation + antiRotate;
+    
     if (checkKey(up))
     {
       pos.y -= 1;
@@ -76,8 +90,11 @@ class Player
   
   void display()
   {    
+    
+    fill(0);
+   // arc(pos.x, pos.y, radius, radius, start, stop);
     stroke(colour);
     fill(255, 255, 0);
-    ellipse(pos.x, pos.y, 30, 30);
+    ellipse(pos.x, pos.y, 15, 15);
   }  
 }

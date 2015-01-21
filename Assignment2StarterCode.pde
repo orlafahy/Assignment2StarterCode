@@ -8,17 +8,32 @@
 
 ArrayList<Player> players = new ArrayList<Player>();
 boolean[] keys = new boolean[526];
+dot[] Dots= new dot[7];
+
 
 void setup()
 {
   size(510, 600);
   setUpPlayerControllers();
+  ellipseMode(RADIUS);
+  
+   for (int i = 0; i < Dots.length; i++)
+   {
+     Dots[i] = new dot();
+   }
 }
 
 void draw()
 {
-  Map();
-  for(Player player:players)
+  background(0);
+  
+   for (int i = 0; i < Dots.length; i++)
+   {
+     Dots[i].show();
+   }
+   Map();
+ 
+    for(Player player:players)
   {
     player.update();
     player.display();
@@ -74,8 +89,8 @@ void setUpPlayerControllers()
     XML playerXML = children[i];
     Player p = new Player(i, playerXML);
     int x = (i + 1) * gap;
-    p.pos.x = x;
-    p.pos.y = 300;
-   players.add(p);         
+    p.pos.x = 255;
+    p.pos.y = 435;
+    players.add(p);         
   }
 }
