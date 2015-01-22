@@ -8,12 +8,12 @@
 
 ArrayList<Player> players = new ArrayList<Player>();
 boolean[] keys = new boolean[526];
-dot[] Dots= new dot[7];
-
+dot[] Dots= new dot[1];
+PImage bg;
 
 void setup()
 {
-  size(510, 600);
+  size(510, 630);
   setUpPlayerControllers();
   ellipseMode(RADIUS);
   
@@ -21,14 +21,16 @@ void setup()
    {
      Dots[i] = new dot();
    }
+   bg = loadImage("Pacmanbg.jpg");
 }
 
 void draw()
 {
-  background(0);
+  image(bg, 0, 0);
   
    for (int i = 0; i < Dots.length; i++)
    {
+
      Dots[i].show();
    }
    Map();

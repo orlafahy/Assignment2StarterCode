@@ -48,31 +48,38 @@ class Player
   
   void update()
   {
-    if (rotation > 0.55)
-      {
-        antiRotate = -0.03;
-      }
-      else if (rotation <= 0)
-      {
-        antiRotate = 0.03;
-      }
-    rotation = rotation + antiRotate;
+      float velocity1 =1.5;
+      float velocity2 =1.5; 
+      float velocity3 =1.5; 
+      float velocity4 =1.5;
+     
+     color underPlayer = bg.get((int)pos.x-15,(int)pos.y-15); 
+     if(red(underPlayer) >= 250.0 && green(underPlayer) <= .5 && blue(underPlayer) <= .5)
+     {
+       velocity1=0;
+     }
+     
+     color underPlayer2 = bg.get((int)pos.x+15,(int)pos.y+15);
+     if(red(underPlayer2) >= .5 && green(underPlayer2) <= 250.0 && blue(underPlayer2) <= .5)
+     {
+       velocity2=0;
+     }
     
     if (checkKey(up))
     {
-      pos.y -= 1;
+      pos.y -= 1*velocity1;
     }
     if (checkKey(down))
     {
-      pos.y += 1;
+      pos.y += 1*velocity2;
     }
     if (checkKey(left))
     {
-      pos.x -= 1;
+      pos.x -= 1*velocity3;
     }    
     if (checkKey(right))
     {
-      pos.x += 1;
+      pos.x += 1*velocity4;
     }
     if (checkKey(start))
     {
@@ -92,9 +99,10 @@ class Player
   {    
     
     fill(0);
-   // arc(pos.x, pos.y, radius, radius, start, stop);
+   // arc(pos.x, pos.y, radius, radius, starts, stop);
     stroke(colour);
     fill(255, 255, 0);
+    rect(pos.x-15, pos.y-15, 30, 30);
     ellipse(pos.x, pos.y, 15, 15);
   }  
 }
