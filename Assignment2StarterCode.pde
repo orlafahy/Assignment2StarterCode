@@ -1,9 +1,8 @@
 /*
-    DIT OOP Assignment 2 Starter Code
-    =================================
-    
-    Loads player properties from an xml file
-    See: https://github.com/skooter500/DT228-OOP 
+  DIT OOP Assignment 2 Starter Code
+  =================================
+  Loads player properties from an xml file
+  See: https://github.com/skooter500/DT228-OOP
 */
 
 ArrayList<Player> players = new ArrayList<Player>();
@@ -17,25 +16,23 @@ void setup()
   setUpPlayerControllers();
   ellipseMode(RADIUS);
   
-   for (int i = 0; i < Dots.length; i++)
-   {
-     Dots[i] = new dot();
-   }
-   bg = loadImage("Pacmanbg.jpg");
+  for (int i = 0; i < Dots.length; i++)
+  {
+    Dots[i] = new dot();
+  }
+  bg = loadImage("Pacmanbg.jpg");
 }
 
 void draw()
 {
   image(bg, 0, 0);
-  
-   for (int i = 0; i < Dots.length; i++)
-   {
+  for (int i = 0; i < Dots.length; i++)
+  {
+    Dots[i].show();
+  }
+  Map();
 
-     Dots[i].show();
-   }
-   Map();
- 
-    for(Player player:players)
+  for(Player player:players)
   {
     player.update();
     player.display();
@@ -59,7 +56,7 @@ boolean checkKey(char theKey)
 
 char buttonNameToKey(XML xml, String buttonName)
 {
-  String value =  xml.getChild(buttonName).getContent();
+  String value = xml.getChild(buttonName).getContent();
   if ("LEFT".equalsIgnoreCase(value))
   {
     return LEFT;
@@ -76,23 +73,23 @@ char buttonNameToKey(XML xml, String buttonName)
   {
     return DOWN;
   }
-  //.. Others to follow
-  return value.charAt(0);  
+    //.. Others to follow
+    return value.charAt(0);
 }
 
 void setUpPlayerControllers()
 {
   XML xml = loadXML("arcade.xml");
   XML[] children = xml.getChildren("player");
-  int gap = width / (children.length + 1); 
+  int gap = width / (children.length + 1);
   
-  for(int i = 0 ; i < children.length ; i ++)  
+  for(int i = 0 ; i < children.length ; i ++)
   {
     XML playerXML = children[i];
     Player p = new Player(i, playerXML);
     int x = (i + 1) * gap;
     p.pos.x = 255;
     p.pos.y = 435;
-    players.add(p);         
+    players.add(p);
   }
 }

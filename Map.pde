@@ -1,7 +1,5 @@
 void Map()
 {
-
-    
     noStroke();
     fill(0, 0, 255);
     rect(0,30,510,30);

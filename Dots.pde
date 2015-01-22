@@ -1,10 +1,9 @@
 class dot
 {
-  
   int dotx = 45;
   int doty = 45;
   int dotsize = 5;
-  
+
   void update()
   {
     for(int dotx = 45 ; dotx < width - 30 ; dotx+=30)
@@ -16,7 +15,8 @@ class dot
       }
     }
   }
-  void show() 
+
+  void show()
   {
     ellipse(dotx, doty, dotsize, dotsize);
   }

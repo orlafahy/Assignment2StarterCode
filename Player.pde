@@ -10,16 +10,12 @@ class Player
   char button2;
   int index;
   color colour;
-  int radius = 5, directionX = 1, directionY = 1;
-  float rotation = 0;
-  float antiRotate = 0.1;
-  float starts, stop;
-    
+
   Player()
   {
     pos = new PVector(255, 435);
   }
-  
+
   Player(int index, char up, char down, char left, char right, char start, char button1, char button2)
   {
     this();
@@ -36,35 +32,49 @@ class Player
   Player(int index, XML xml)
   {
     this(index
-        , buttonNameToKey(xml, "up")
-        , buttonNameToKey(xml, "down")
-        , buttonNameToKey(xml, "left")
-        , buttonNameToKey(xml, "right")
-        , buttonNameToKey(xml, "start")
-        , buttonNameToKey(xml, "button1")
-        , buttonNameToKey(xml, "button2")
-        );
-  }
-  
+      , buttonNameToKey(xml, "up")
+      , buttonNameToKey(xml, "down")
+      , buttonNameToKey(xml, "left")
+      , buttonNameToKey(xml, "right")
+      , buttonNameToKey(xml, "start")
+      , buttonNameToKey(xml, "button1")
+      , buttonNameToKey(xml, "button2")
+      );
+   }
+   
   void update()
   {
-      float velocity1 =1.5;
-      float velocity2 =1.5; 
-      float velocity3 =1.5; 
-      float velocity4 =1.5;
-     
-     color underPlayer = bg.get((int)pos.x-15,(int)pos.y-15); 
+    float velocity1 =1.5;
+    float velocity2 =1.5;
+    float velocity3 =1.5;
+    float velocity4 =1.5;
+ 
+    //check for the colour red under player
+     color underPlayer = bg.get((int)pos.x,(int)pos.y-15);
      if(red(underPlayer) >= 250.0 && green(underPlayer) <= .5 && blue(underPlayer) <= .5)
      {
        velocity1=0;
      }
+
+    color underPlayer2 = bg.get((int)pos.x,(int)pos.y+15);
+    if(red(underPlayer2) <= .5 && green(underPlayer2) >= 250.0 && blue(underPlayer2) <= .5)
+    {
+      velocity2=0;
+    }
      
-     color underPlayer2 = bg.get((int)pos.x+15,(int)pos.y+15);
-     if(red(underPlayer2) >= .5 && green(underPlayer2) <= 250.0 && blue(underPlayer2) <= .5)
-     {
-       velocity2=0;
-     }
+     
+    color underPlayer3 = bg.get((int)pos.x-15,(int)pos.y);
+    if(red(underPlayer3) <= .5 && green(underPlayer3) >= 250.0 && blue(underPlayer3) >= 250.0)
+    {
+      velocity3=0;
+    }
     
+    color underPlayer4 = bg.get((int)pos.x+15,(int)pos.y);
+    if(red(underPlayer4) >= 250.0 && green(underPlayer4) >= 250.0 && blue(underPlayer4) >= 250.0)
+    {
+      velocity4=0;
+    }
+
     if (checkKey(up))
     {
       pos.y -= 1*velocity1;
@@ -76,7 +86,7 @@ class Player
     if (checkKey(left))
     {
       pos.x -= 1*velocity3;
-    }    
+    }
     if (checkKey(right))
     {
       pos.x += 1*velocity4;
@@ -92,17 +102,15 @@ class Player
     if (checkKey(button2))
     {
       println("Player " + index + " butt2");
-    }    
+    }
   }
-  
+
   void display()
-  {    
-    
+  {
     fill(0);
-   // arc(pos.x, pos.y, radius, radius, starts, stop);
+    // arc(pos.x, pos.y, radius, radius, starts, stop);
     stroke(colour);
     fill(255, 255, 0);
-    rect(pos.x-15, pos.y-15, 30, 30);
     ellipse(pos.x, pos.y, 15, 15);
-  }  
+  }
 }
