@@ -8,6 +8,10 @@
 ArrayList<Player> players = new ArrayList<Player>();
 boolean[] keys = new boolean[526];
 dot[] Dots= new dot[1];
+int[] positionsx = {255, 255}; 
+int[] positionsy = {465, 165};
+int lives = 3;
+int points = 0;
 PImage bg;
 
 void setup()
@@ -21,11 +25,44 @@ void setup()
     Dots[i] = new dot();
   }
   bg = loadImage("Pacmanbg.jpg");
+  
+  /*
+  
+  */
 }
 
 void draw()
 {
   image(bg, 0, 0);
+  
+  fill(255);
+  text("Points:", 10, 20);
+  text(points, 70, 20);
+  text("Lives:", 315, 20);
+  
+  fill(255, 255, 0);
+  if (lives == 1)
+  {
+    ellipse(375, 15, 10, 10);
+  }
+  if(lives == 2)
+  {
+    ellipse(375, 15, 10, 10);
+    ellipse(405, 15, 10, 10);
+  }
+  if(lives == 3)
+  {
+    ellipse(375, 15, 10, 10);
+    ellipse(405, 15, 10, 10);
+    ellipse(435, 15, 10, 10);
+  }
+  
+ for(int j = 0; j < 90; j+=30)
+ {
+   fill(0);
+   triangle(375+j, 15, 390+j, 10, 390+j, 20);
+ } 
+  
   for (int i = 0; i < Dots.length; i++)
   {
     Dots[i].show();
@@ -88,8 +125,8 @@ void setUpPlayerControllers()
     XML playerXML = children[i];
     Player p = new Player(i, playerXML);
     int x = (i + 1) * gap;
-    p.pos.x = 255;
-    p.pos.y = 435;
+    p.pos.x = positionsx[i];
+    p.pos.y = positionsy[i];
     players.add(p);
   }
 }

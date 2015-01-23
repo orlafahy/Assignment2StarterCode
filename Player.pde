@@ -13,7 +13,7 @@ class Player
 
   Player()
   {
-    pos = new PVector(255, 435);
+    pos = new PVector(255, 465);
   }
 
   Player(int index, char up, char down, char left, char right, char start, char button1, char button2)
@@ -56,19 +56,21 @@ class Player
        velocity1=0;
      }
 
+    //check for the colour green under player
     color underPlayer2 = bg.get((int)pos.x,(int)pos.y+15);
     if(red(underPlayer2) <= .5 && green(underPlayer2) >= 250.0 && blue(underPlayer2) <= .5)
     {
       velocity2=0;
     }
-     
-     
+        
+    //check for the colour cyan under player  
     color underPlayer3 = bg.get((int)pos.x-15,(int)pos.y);
     if(red(underPlayer3) <= .5 && green(underPlayer3) >= 250.0 && blue(underPlayer3) >= 250.0)
     {
       velocity3=0;
     }
     
+    //check for the colour white under player
     color underPlayer4 = bg.get((int)pos.x+15,(int)pos.y);
     if(red(underPlayer4) >= 250.0 && green(underPlayer4) >= 250.0 && blue(underPlayer4) >= 250.0)
     {
