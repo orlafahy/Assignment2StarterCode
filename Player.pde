@@ -54,13 +54,16 @@ class Player
      if(red(underPlayer) >= 250.0 && green(underPlayer) <= .5 && blue(underPlayer) <= .5)
      {
        velocity1=0;
+       chomp.loop(1);
      }
 
+      
     //check for the colour green under player
     color underPlayer2 = bg.get((int)pos.x,(int)pos.y+15);
     if(red(underPlayer2) <= .5 && green(underPlayer2) >= 250.0 && blue(underPlayer2) <= .5)
     {
       velocity2=0;
+      
     }
         
     //check for the colour cyan under player  
@@ -75,6 +78,7 @@ class Player
     if(red(underPlayer4) >= 250.0 && green(underPlayer4) >= 250.0 && blue(underPlayer4) >= 250.0)
     {
       velocity4=0;
+      //beginning.play();
     }
     
     //transport to other side of the screen at tunnel 
@@ -87,7 +91,13 @@ class Player
       pos.x=0;
     }
 
-
+  /*if(player1 is touched by player2)
+    {
+      pos.x = 255;
+      pos.y = 465;
+      lives--;
+      death.play(1);
+    }*/
 
     if (checkKey(up))
     {

@@ -16,13 +16,19 @@ int[] positionsy = {465, 165};
 int state;
 int lives = 3;
 int points = 0;
+
 PImage bg;
 PFont pacman;
 PFont arcade;
+import ddf.minim.*;
+Minim minim;
+AudioPlayer chomp;
+AudioPlayer death;
+AudioPlayer beginning;
 
 void setup()
 {
-  state = 1;
+  state = 2;
   size(510, 630);
   setUpPlayerControllers();
   ellipseMode(RADIUS);
@@ -35,9 +41,10 @@ void setup()
   }
   bg = loadImage("Pacmanbg.jpg");
   
-  /*
+  minim = new Minim(this);
+  chomp = minim.loadFile("chomp.wav", 2048);
+  death = minim.loadFile("death.wav", 2048);
   
-  */
 }
 
 void draw()

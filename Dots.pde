@@ -43,19 +43,18 @@ class dot
 class dot
 {
   color colour;
-  boolean highlighted; 
+  boolean show; 
   PVector position;
-  int dotx = 45;
-  int doty = 45;
-  int dotsize = 5;
+  int x = 45;
+  int y = 45;
+  int size = 5;
   
   dot()
   {
      this(0, 0, 0, 0); //constructure chaining 
   }
   
-  ellipse(dotx, doty, dotsize, dotsize);
-  Square(int x, int y, int size)
+  dot(int x, int y, int size)
   {
     position=new PVector(x, y);
     this.size=size;
@@ -66,20 +65,19 @@ class dot
     
   }
   
-  void display(boolean highlighted)
+  void display(boolean show)
   {
-    float dim = 0;
-    if(highlighted)
+    
+    if(show)
     {
-      dim = 1;
+      fill(255, 255, 0);
     }
     else
     {
-      dim = 0.5;
+      fill(0);
     }
-    stroke(red(colour)* dim, green(colour)* dim, blue(colour)* dim);
-    fill(red(colour)* dim, green(colour)* dim, blue(colour)* dim);
     
-    rect(position.x, position.y, halfWidth, halfHeight);
+    ellipse(x, y, size, size);
+    
   }
 }*/
