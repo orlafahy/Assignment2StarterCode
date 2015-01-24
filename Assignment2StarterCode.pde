@@ -37,10 +37,10 @@ void setup()
   {
     for(int doty = 75 ; doty < height - 30; doty+=30)
     {
-      dot.add(new Dots(dotx, doty, 5));
+      dot.add(new Dots(dotx, doty, 5, true));
     }
   }
-    
+  
   bg = loadImage("Pacmanbg.jpg");
   
   minim = new Minim(this);
@@ -90,11 +90,12 @@ void draw()
      fill(0);
      triangle(375+j, 15, 390+j, 10, 390+j, 20);
    } 
-  
-   for (int i = 0; i < dot.size(); i++)
-    {
-      dot.get(i).display(true);
-    }
+   
+   for(int i = 0; i < dot.size(); i++)
+  {
+    dot.get(i).update();
+    dot.get(i).display();
+   }
     Map();
 
     for(Player player:players)
@@ -103,6 +104,8 @@ void draw()
       player.display();
     }
   }
+     
+      
   if(state == 3)
   {
     Gameover();

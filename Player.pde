@@ -44,6 +44,7 @@ class Player
    
   void update()
   {
+    
     float velocity1 =1.5;
     float velocity2 =1.5;
     float velocity3 =1.5;
@@ -54,7 +55,6 @@ class Player
      if(red(underPlayer) >= 250.0 && green(underPlayer) <= .5 && blue(underPlayer) <= .5)
      {
        velocity1=0;
-       chomp.loop(1);
      }
 
       
@@ -91,13 +91,16 @@ class Player
       pos.x=0;
     }
 
-  /*if(player1 is touched by player2)
+    //check if player 2 has touched player 1
+    if(dist(players.get(0).pos.x, players.get(0).pos.y, players.get(1).pos.x, players.get(1).pos.y) <= 30)
     {
-      pos.x = 255;
-      pos.y = 465;
-      lives--;
       death.play(1);
-    }*/
+      players.get(0).pos.x = 255;
+      players.get(0).pos.y = 465;
+      players.get(1).pos.x = 255;
+      players.get(1).pos.y = 165;
+      lives--;
+    }
 
     if (checkKey(up))
     {
