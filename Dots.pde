@@ -4,6 +4,18 @@ class dot
   int doty = 45;
   int dotsize = 5;
 
+/*  void update()
+  {
+    if(points % 162 == 0)
+    {
+      //reset players position
+      
+      //set all dots back to true
+      
+      //increase velocity variable
+    }
+  }*/
+  
   void show()
   {
     for(int dotx = 45 ; dotx < width - 30 ; dotx+=30)

@@ -76,6 +76,16 @@ class Player
     {
       velocity4=0;
     }
+    
+    //transport to other side of the screen at tunnel 
+    if(dist(pos.x, pos.y, 0, 315) <= 15 && checkKey(left))
+    {
+      pos.x=510;
+    }
+    if(dist(pos.x, pos.y, 510, 315) <= 15 && checkKey(right))
+    {
+      pos.x=0;
+    }
 
     if (checkKey(up))
     {
