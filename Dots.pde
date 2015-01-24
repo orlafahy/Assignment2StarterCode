@@ -31,8 +31,8 @@ void update()
         chomp.loop(1/2);
       }
     }
-}
-    /*if(points % 162 == 0)
+
+    if(points % 162 == 0)
     {
       //reset players position
       players.get(0).pos.x = 255;
@@ -48,9 +48,9 @@ void update()
       }
       //increase velocity variable
     }
-  }*/
+}
   
-void display(boolean show)
+void display()
   {
     
     if(show == true)
