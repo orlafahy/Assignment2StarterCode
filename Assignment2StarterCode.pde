@@ -6,10 +6,8 @@
 */
 
 ArrayList<Player> players = new ArrayList<Player>();
+ArrayList<Dots> dot = new ArrayList<Dots>();
 boolean[] keys = new boolean[526];
-//boolean[] Dots = new dot[200];
-
-dot[] Dots= new dot[1];
 int[] positionsx = {255, 255}; 
 int[] positionsy = {465, 165};
 
@@ -35,10 +33,14 @@ void setup()
   pacman = createFont("Pacman.ttf", 60);
   arcade = createFont("ArcadeClassic.ttf", 25);
   
-  for (int i = 0; i < Dots.length; i++)
+  for(int dotx = 45 ; dotx < width - 30 ; dotx+=30)
   {
-    Dots[i] = new dot();
+    for(int doty = 75 ; doty < height - 30; doty+=30)
+    {
+      dot.add(new Dots(dotx, doty, 5));
+    }
   }
+    
   bg = loadImage("Pacmanbg.jpg");
   
   minim = new Minim(this);
@@ -89,9 +91,9 @@ void draw()
      triangle(375+j, 15, 390+j, 10, 390+j, 20);
    } 
   
-    for (int i = 0; i < Dots.length; i++)
+   for (int i = 0; i < dot.size(); i++)
     {
-      Dots[i].show();
+      dot.get(i).display(true);
     }
     Map();
 
