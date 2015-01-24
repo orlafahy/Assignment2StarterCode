@@ -7,18 +7,27 @@
 
 ArrayList<Player> players = new ArrayList<Player>();
 boolean[] keys = new boolean[526];
+//boolean[] Dots = new dot[200];
+
 dot[] Dots= new dot[1];
 int[] positionsx = {255, 255}; 
 int[] positionsy = {465, 165};
+
+int state;
 int lives = 3;
 int points = 0;
 PImage bg;
+PFont pacman;
+PFont arcade;
 
 void setup()
 {
+  state = 1;
   size(510, 630);
   setUpPlayerControllers();
   ellipseMode(RADIUS);
+  pacman = createFont("Pacman.ttf", 60);
+  arcade = createFont("ArcadeClassic.ttf", 25);
   
   for (int i = 0; i < Dots.length; i++)
   {
@@ -33,46 +42,61 @@ void setup()
 
 void draw()
 {
-  image(bg, 0, 0);
-  
-  fill(255);
-  text("Points:", 10, 20);
-  text(points, 70, 20);
-  text("Lives:", 315, 20);
-  
-  fill(255, 255, 0);
-  if (lives == 1)
+  if(state == 1)
   {
-    ellipse(375, 15, 10, 10);
+    splashscreen();
   }
-  if(lives == 2)
+  if(state == 2)
   {
-    ellipse(375, 15, 10, 10);
-    ellipse(405, 15, 10, 10);
-  }
-  if(lives == 3)
-  {
-    ellipse(375, 15, 10, 10);
-    ellipse(405, 15, 10, 10);
-    ellipse(435, 15, 10, 10);
-  }
+    image(bg, 0, 0);
   
- for(int j = 0; j < 90; j+=30)
- {
-   fill(0);
-   triangle(375+j, 15, 390+j, 10, 390+j, 20);
- } 
+    fill(255);
+    text("Points:", 10, 20);
+    text(points, 70, 20);
+    text("Lives:", 315, 20);
   
-  for (int i = 0; i < Dots.length; i++)
-  {
-    Dots[i].show();
-  }
-  Map();
+    fill(255, 255, 0);
+    if (lives == 0)
+    {
+      state = 3;
+    }
+    if (lives == 1)
+    {
+      ellipse(375, 15, 10, 10);
+    }
+    if(lives == 2)
+    {
+      ellipse(375, 15, 10, 10);
+      ellipse(405, 15, 10, 10);
+    }
+    if(lives == 3)
+    {
+      ellipse(375, 15, 10, 10);
+      ellipse(405, 15, 10, 10);
+      ellipse(435, 15, 10, 10);
+    }
+  
+   for(int j = 0; j < 90; j+=30)
+   {
+     fill(0);
+     triangle(375+j, 15, 390+j, 10, 390+j, 20);
+   } 
+  
+    for (int i = 0; i < Dots.length; i++)
+    {
+      Dots[i].show();
+    }
+    Map();
 
-  for(Player player:players)
+    for(Player player:players)
+    {
+      player.update();
+      player.display();
+    }
+  }
+  if(state == 3)
   {
-    player.update();
-    player.display();
+    Gameover();
   }
 }
 

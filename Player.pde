@@ -87,6 +87,8 @@ class Player
       pos.x=0;
     }
 
+
+
     if (checkKey(up))
     {
       pos.y -= 1*velocity1;
