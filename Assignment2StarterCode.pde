@@ -13,7 +13,7 @@ int[] positionsy = {465, 165};
 
 int state;
 int lives = 3;
-int points = 0;
+int points = 1;
 float speed = 1.5;
 
 PImage bg;
@@ -38,7 +38,14 @@ void setup()
   {
     for(int doty = 75 ; doty < height - 30; doty+=30)
     {
-      dot.add(new Dots(dotx, doty, 5, true));
+      if(dotx == 255 && doty == 465)
+      {
+        dot.add(new Dots(dotx, doty, 5, false));
+      }
+      else
+      {
+        dot.add(new Dots(dotx, doty, 5, true));
+      }
     }
   }
   
@@ -47,6 +54,8 @@ void setup()
   minim = new Minim(this);
   chomp = minim.loadFile("chomp.wav", 2048);
   death = minim.loadFile("death.wav", 2048);
+  beginning = minim.loadFile("beginning.wav", 2048);
+  beginning.loop(1/2);
   
 }
 

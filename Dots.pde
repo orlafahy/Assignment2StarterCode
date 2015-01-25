@@ -25,7 +25,6 @@ void update()
       if(dist(players.get(0).pos.x, players.get(0).pos.y, dot.get(i).position.x, dot.get(i).position.y) <= 5 && dot.get(i).show == true) 
       {
         dot.get(i).show = false;
-        println(points);
         points = points+1;
         chomp.loop(1/2);
       }

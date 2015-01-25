@@ -9,7 +9,11 @@ class Player
   char button1;
   char button2;
   int index;
-  color colour;
+  color colour = color(255, 255, 0);
+  float rotation = 0;
+  float antiRotate = 0.1;
+  float starts, stop;
+  int radius = 15;
 
   Player()
   {
@@ -49,6 +53,8 @@ class Player
     float velocity2 =speed;
     float velocity3 =speed;
     float velocity4 =speed;
+    starts = rotation;
+    stop =  (PI*2) - rotation;
  
     //check for the colour red under player
      color underPlayer = bg.get((int)pos.x,(int)pos.y-15);
@@ -101,21 +107,42 @@ class Player
       lives--;
     }
 
+    //moves player and stops them form moving diaginally 
     if (checkKey(up))
     {
+      starts = -rotation - 0.95;
+      stop =  3*PI/3 + rotation + 0.95;
       pos.y -= 1*velocity1;
+      velocity2=0;
+      velocity3=0;
+      velocity4=0;
     }
     if (checkKey(down))
     {
+      starts =  rotation + PI/2;
+      stop = PI*2 - rotation + PI/2;
       pos.y += 1*velocity2;
+      velocity1=0;
+      velocity3=0;
+      velocity4=0;
     }
     if (checkKey(left))
     {
+      starts =  rotation - PI;
+      stop = - rotation + PI;
       pos.x -= 1*velocity3;
+      velocity1=0;
+      velocity2=0;
+      velocity4=0;
     }
     if (checkKey(right))
     {
+      starts = rotation;
+      stop =  PI*2 - rotation;
       pos.x += 1*velocity4;
+      velocity1=0;
+      velocity2=0;
+      velocity3=0;
     }
     if (checkKey(start))
     {
@@ -133,10 +160,19 @@ class Player
 
   void display()
   {
-    fill(0);
-    // arc(pos.x, pos.y, radius, radius, starts, stop);
-    stroke(colour);
-    fill(255, 255, 0);
-    ellipse(pos.x, pos.y, 15, 15);
+    if (rotation > 0.55)
+    {
+      antiRotate = -0.03;
+    }
+    else if (rotation <= 0)
+    {
+      antiRotate = 0.03;
+    }
+    rotation = rotation + antiRotate;
+    //fill(0);
+    fill(colour);
+    arc(pos.x, pos.y, radius, radius, starts, stop);
+   // fill(colour);
+    //ellipse(pos.x, pos.y, 15, 15);
   }
 }
