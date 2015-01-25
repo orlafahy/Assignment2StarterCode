@@ -1,5 +1,4 @@
 class Dots
-class Dots extends Player
 {
   color colour;
   int size;
@@ -47,6 +46,7 @@ void update()
         dot.get(i).show = true;
       }
       //increase velocity variable
+      speed +=.5;
     }
 }
   

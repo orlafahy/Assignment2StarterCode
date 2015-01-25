@@ -45,10 +45,10 @@ class Player
   void update()
   {
     
-    float velocity1 =1.5;
-    float velocity2 =1.5;
-    float velocity3 =1.5;
-    float velocity4 =1.5;
+    float velocity1 =speed;
+    float velocity2 =speed;
+    float velocity3 =speed;
+    float velocity4 =speed;
  
     //check for the colour red under player
      color underPlayer = bg.get((int)pos.x,(int)pos.y-15);
@@ -78,7 +78,6 @@ class Player
     if(red(underPlayer4) >= 250.0 && green(underPlayer4) >= 250.0 && blue(underPlayer4) >= 250.0)
     {
       velocity4=0;
-      //beginning.play();
     }
     
     //transport to other side of the screen at tunnel 

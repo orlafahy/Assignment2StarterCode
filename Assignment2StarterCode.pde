@@ -14,6 +14,7 @@ int[] positionsy = {465, 165};
 int state;
 int lives = 3;
 int points = 0;
+float speed = 1.5;
 
 PImage bg;
 PFont pacman;
