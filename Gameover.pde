@@ -9,7 +9,7 @@ void Gameover()
   text("Press start to play again!", width/2-150, height/4 + 200);
   
   /*
-  if()
+  if(start pressed)
   {
     Newgame();
   }

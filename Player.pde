@@ -164,6 +164,7 @@ class Player
 
   void display()
   {
+    //animates opening and closing of pacmans mouth
     if (rotation > 0.55)
     {
       antiRotate = -0.03;
@@ -173,10 +174,8 @@ class Player
       antiRotate = 0.03;
     }
     rotation = rotation + antiRotate;
-    //fill(0);
+    
     fill(colour);
     arc(pos.x, pos.y, radius, radius, starts, stop);
-   // fill(colour);
-    //ellipse(pos.x, pos.y, 15, 15);
   }
 }

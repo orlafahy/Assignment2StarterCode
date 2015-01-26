@@ -64,8 +64,10 @@ void draw()
 {
   if(state == 1)
   {
+    //display splash screen
     splashscreen();
   }
+  
   if(state == 2)
   {
     //background image loaded
@@ -83,20 +85,11 @@ void draw()
     {
       state = 3;
     }
-    if (lives == 1)
+    int c = 375;
+    for(int j = 0 ; j < lives ; j++)
     {
-      ellipse(375, 15, 10, 10);
-    }
-    if(lives == 2)
-    {
-      ellipse(375, 15, 10, 10);
-      ellipse(405, 15, 10, 10);
-    }
-    if(lives == 3)
-    {
-      ellipse(375, 15, 10, 10);
-      ellipse(405, 15, 10, 10);
-      ellipse(435, 15, 10, 10);
+      ellipse(c, 15, 10, 10);
+      c += 30;
     }
   
    for(int j = 0; j < 90; j+=30)
@@ -106,11 +99,11 @@ void draw()
    } 
    
    for(int i = 0; i < dot.size(); i++)
-  {
-    dot.get(i).update();
-    dot.get(i).display();
+   {
+     dot.get(i).update();
+     dot.get(i).display();
    }
-    Map();
+   Map();
 
     for(Player player:players)
     {
@@ -119,9 +112,9 @@ void draw()
     }
   }
      
-      
   if(state == 3)
   {
+    //display game over screen
     Gameover();
   }
 }

@@ -7,7 +7,7 @@ void Map()
     rect(480,30,510,630);
     rect(0,600,510,630);
    
-    //1. squares
+    //draw first set of squares 
     for(int i = 60 ; i < 391 ; i+=90)
     {
       if(i == 240)
@@ -17,11 +17,11 @@ void Map()
       rect(i, 90, 60, 60);
     }
     
-    //2.rect
+    //draw first set of rectangles 
     rect(240, 60, 30, 90);
     rect(240, 480, 30, 90);
     
-    //3.rect
+    //draw second set of rectangles 
     for(int i = 180 ; i < 481 ; i+=90)
     {
       if(i == 270)
@@ -36,14 +36,14 @@ void Map()
     rect(60, 540, 150, 30);
     rect(300, 540, 150, 30);
     
-    //4. rect
+    //draw third set of rectangles
     for(int i = 90; i < 480; i+=270)
     {
       rect(i, 210, 60, 120);
       rect(i, 390, 60, 120);
     }
     
-    //5. rext
+    //draw forth set of rectangles
     for(int i = 180; i < 510; i+=30)
     {
       if(i == 300)
