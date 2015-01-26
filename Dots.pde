@@ -22,7 +22,7 @@ void update()
    
     for(int i = 0; i < dot.size(); i++)
     {
-      if(dist(players.get(0).pos.x, players.get(0).pos.y, dot.get(i).position.x, dot.get(i).position.y) <= 5 && dot.get(i).show == true) 
+      if(dist(players.get(0).pos.x, players.get(0).pos.y, dot.get(i).position.x, dot.get(i).position.y) <= 10 && dot.get(i).show == true) 
       {
         dot.get(i).show = false;
         points = points+1;

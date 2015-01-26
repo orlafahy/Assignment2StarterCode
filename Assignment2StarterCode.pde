@@ -49,12 +49,13 @@ void setup()
     }
   }
   
+  //load background image and sounds
   bg = loadImage("Pacmanbg.jpg");
-  
   minim = new Minim(this);
   chomp = minim.loadFile("chomp.wav", 2048);
   death = minim.loadFile("death.wav", 2048);
   beginning = minim.loadFile("beginning.wav", 2048);
+  //play start music
   beginning.loop(1/2);
   
 }
@@ -67,13 +68,16 @@ void draw()
   }
   if(state == 2)
   {
+    //background image loaded
     image(bg, 0, 0);
   
+    //lives and scoreboard displayed
     fill(255);
     text("Points:", 10, 20);
     text(points, 70, 20);
     text("Lives:", 315, 20);
   
+    //display pacman for lives equal to number of lives player 1 has
     fill(255, 255, 0);
     if (lives == 0)
     {

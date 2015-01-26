@@ -57,31 +57,35 @@ class Player
     stop =  (PI*2) - rotation;
  
     //check for the colour red under player
-     color underPlayer = bg.get((int)pos.x,(int)pos.y-15);
-     if(red(underPlayer) >= 250.0 && green(underPlayer) <= .5 && blue(underPlayer) <= .5)
+     color undertop1 = bg.get((int)pos.x-12,(int)pos.y-15);
+     color undertop2 = bg.get((int)pos.x+12,(int)pos.y-15);
+     if(red(undertop1) >= 250.0 && green(undertop1) <= .5 && blue(undertop1) <= .5 || red(undertop2) >= 250.0 && green(undertop2) <= .5 && blue(undertop2) <= .5)
      {
        velocity1=0;
      }
 
       
     //check for the colour green under player
-    color underPlayer2 = bg.get((int)pos.x,(int)pos.y+15);
-    if(red(underPlayer2) <= .5 && green(underPlayer2) >= 250.0 && blue(underPlayer2) <= .5)
+    color underbottom1 = bg.get((int)pos.x+13,(int)pos.y+15);
+    color underbottom2 = bg.get((int)pos.x-13,(int)pos.y+15);
+    if(red(underbottom1) <= .5 && green(underbottom1) >= 250.0 && blue(underbottom1) <= .5 || red(underbottom2) <= .5 && green(underbottom2) >= 250.0 && blue(underbottom2) <= .5)
     {
       velocity2=0;
       
     }
         
     //check for the colour cyan under player  
-    color underPlayer3 = bg.get((int)pos.x-15,(int)pos.y);
-    if(red(underPlayer3) <= .5 && green(underPlayer3) >= 250.0 && blue(underPlayer3) >= 250.0)
+    color underleft1 = bg.get((int)pos.x-12,(int)pos.y+15);
+    color underleft2 = bg.get((int)pos.x-12,(int)pos.y-15);
+    if(red(underleft1) <= .5 && green(underleft1) >= 250.0 && blue(underleft1) >= 250.0 || red(underleft2) <= .5 && green(underleft2) >= 250.0 && blue(underleft2) >= 250.0)
     {
       velocity3=0;
     }
     
     //check for the colour white under player
-    color underPlayer4 = bg.get((int)pos.x+15,(int)pos.y);
-    if(red(underPlayer4) >= 250.0 && green(underPlayer4) >= 250.0 && blue(underPlayer4) >= 250.0)
+    color underright1 = bg.get((int)pos.x+15,(int)pos.y+13);
+    color underright2 = bg.get((int)pos.x+15,(int)pos.y-13);
+    if(red(underright1) >= 250.0 && green(underright1) >= 250.0 && blue(underright1) >= 250.0 || red(underright2) >= 250.0 && green(underright2) >= 250.0 && blue(underright2) >= 250.0)
     {
       velocity4=0;
     }
