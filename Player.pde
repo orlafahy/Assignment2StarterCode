@@ -66,8 +66,8 @@ class Player
 
       
     //check for the colour green under player
-    color underbottom1 = bg.get((int)pos.x+13,(int)pos.y+15);
-    color underbottom2 = bg.get((int)pos.x-13,(int)pos.y+15);
+    color underbottom1 = bg.get((int)pos.x+12,(int)pos.y+15);
+    color underbottom2 = bg.get((int)pos.x-12,(int)pos.y+15);
     if(red(underbottom1) <= .5 && green(underbottom1) >= 250.0 && blue(underbottom1) <= .5 || red(underbottom2) <= .5 && green(underbottom2) >= 250.0 && blue(underbottom2) <= .5)
     {
       velocity2=0;
@@ -83,8 +83,8 @@ class Player
     }
     
     //check for the colour white under player
-    color underright1 = bg.get((int)pos.x+15,(int)pos.y+13);
-    color underright2 = bg.get((int)pos.x+15,(int)pos.y-13);
+    color underright1 = bg.get((int)pos.x+15,(int)pos.y+12);
+    color underright2 = bg.get((int)pos.x+15,(int)pos.y-12);
     if(red(underright1) >= 250.0 && green(underright1) >= 250.0 && blue(underright1) >= 250.0 || red(underright2) >= 250.0 && green(underright2) >= 250.0 && blue(underright2) >= 250.0)
     {
       velocity4=0;

@@ -27,7 +27,7 @@ AudioPlayer beginning;
 
 void setup()
 {
-  state = 2;
+  state = 1;
   size(510, 630);
   setUpPlayerControllers();
   ellipseMode(RADIUS);
@@ -66,6 +66,10 @@ void draw()
   {
     //display splash screen
     splashscreen();
+    if(checkKey(players.get(0).start))
+    {
+      state = 2;
+    }
   }
   
   if(state == 2)
@@ -75,9 +79,9 @@ void draw()
   
     //lives and scoreboard displayed
     fill(255);
-    text("Points:", 10, 20);
-    text(points, 70, 20);
-    text("Lives:", 315, 20);
+    text("Points", 10, 22);
+    text(points, 100, 22);
+    text("Lives", 290, 22);
   
     //display pacman for lives equal to number of lives player 1 has
     fill(255, 255, 0);

@@ -8,10 +8,9 @@ void Gameover()
   text(points, 245, height/4 + 90);
   text("Press start to play again!", width/2-150, height/4 + 200);
   
-  /*
-  if(start pressed)
+  
+  if(checkKey(players.get(0).start))
   {
-    Newgame();
+    newgame();
   }
-  */
 }
