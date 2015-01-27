@@ -9,21 +9,23 @@ class Player
   char button1;
   char button2;
   int index;
-  color colour = color(255, 255, 0);
+  color colour;
   float rotation = 0;
   float antiRotate = 0.1;
   float starts, stop;
   int radius = 15;
+  int i = 0;
 
   Player()
   {
-    pos = new PVector(255, 465);
+    pos = new PVector(0, 0);
   }
 
-  Player(int index, char up, char down, char left, char right, char start, char button1, char button2)
+  Player(int index, color colour, char up, char down, char left, char right, char start, char button1, char button2)
   {
     this();
     this.index = index;
+    this.colour = colour;
     this.up = up;
     this.down = down;
     this.left = left;
@@ -33,9 +35,10 @@ class Player
     this.button2 = button2;
   }
   
-  Player(int index, XML xml)
+  Player(int index, color colour, XML xml)
   {
     this(index
+      , colour
       , buttonNameToKey(xml, "up")
       , buttonNameToKey(xml, "down")
       , buttonNameToKey(xml, "left")

@@ -1,6 +1,7 @@
 void Gameover()
 { 
   background(0);
+  fill(255, 255, 0);
   
   textFont(arcade);
   text("Game Over", width/2-60, height/4);

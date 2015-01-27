@@ -10,6 +10,7 @@ ArrayList<Dots> dot = new ArrayList<Dots>();
 boolean[] keys = new boolean[526];
 int[] positionsx = {255, 255}; 
 int[] positionsy = {465, 165};
+color[] colour = {color(255, 255, 0), color(255, 0, 0)};
 
 int state;
 int lives = 3;
@@ -33,7 +34,7 @@ void setup()
   ellipseMode(RADIUS);
   pacman = createFont("Pacman.ttf", 60);
   arcade = createFont("ArcadeClassic.ttf", 25);
-  
+
   for(int dotx = 45 ; dotx < width - 30 ; dotx+=30)
   {
     for(int doty = 75 ; doty < height - 30; doty+=30)
@@ -170,8 +171,9 @@ void setUpPlayerControllers()
   for(int i = 0 ; i < children.length ; i ++)
   {
     XML playerXML = children[i];
-    Player p = new Player(i, playerXML);
+    Player p = new Player(i, colour[i], playerXML);
     int x = (i + 1) * gap;
+    
     p.pos.x = positionsx[i];
     p.pos.y = positionsy[i];
     players.add(p);
