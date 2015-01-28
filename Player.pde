@@ -78,8 +78,8 @@ class Player
     }
         
     //check for the colour cyan under player  
-    color underleft1 = bg.get((int)pos.x-12,(int)pos.y+15);
-    color underleft2 = bg.get((int)pos.x-12,(int)pos.y-15);
+    color underleft1 = bg.get((int)pos.x-15,(int)pos.y+15);
+    color underleft2 = bg.get((int)pos.x-15,(int)pos.y-15);
     if(red(underleft1) <= .5 && green(underleft1) >= 250.0 && blue(underleft1) >= 250.0 || red(underleft2) <= .5 && green(underleft2) >= 250.0 && blue(underleft2) >= 250.0)
     {
       velocity3=0;
