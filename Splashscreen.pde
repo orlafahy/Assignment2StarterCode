@@ -20,11 +20,11 @@ void splashscreen()
   fill(0);
   triangle(150, height/2, 200, height/2+40, 200, height/2-40);
   
-  /*
-  if(start pressed)
+  
+  if(key == ' ')
   {
     state = 2;
   }
-  */
+  
   
 }

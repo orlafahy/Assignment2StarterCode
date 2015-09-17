@@ -53,7 +53,7 @@ void update()
   
 void display()
   {
-    //colour true dots yello
+    //colour true dots yellow
     if(show == true)
     {
       fill(255, 255, 0);
